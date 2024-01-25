@@ -17,6 +17,7 @@ from utils.gsm8k.decoding import extract_answer
 
 def get_examples(data_dir, split):
     read_file = {
+		'train_small': 'train_small.jsonl',
         'train': 'train.jsonl',
         'test': 'test.jsonl',
     }[split]
