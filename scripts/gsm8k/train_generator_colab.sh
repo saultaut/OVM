@@ -20,7 +20,7 @@ accelerate launch \
   --model_name_or_path ${model_name_or_path} \
   --dataset gsm8k \
   --data_dir data/gsm8k \
-  --target_set train \
+  --target_set train_small \
   --save_dir ${save_dir} \
   --num_train_epoches 2 \
   --eval_steps 200 \
