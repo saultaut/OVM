@@ -20,6 +20,7 @@ def get_examples(data_dir, split):
 		'train_small': 'train_small.jsonl',
         'train': 'train.jsonl',
         'test': 'test.jsonl',
+		'test_small': 'test_small.jsonl'
     }[split]
     
     path = os.path.join(data_dir, read_file)
