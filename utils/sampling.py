@@ -468,9 +468,9 @@ class SamplingWithCalculator:
             if stopping_criteria_end(input_ids, None):
                 break
             
-            new_token_ids = self._call_calculator(input_ids)
-            if new_token_ids.numel():
-                input_ids, past_key_values, all_transition_scores = self._add_new_tokens_and_adjust(input_ids, new_token_ids, past_key_values, all_transition_scores)
+            #new_token_ids = self._call_calculator(input_ids)
+            #if new_token_ids.numel():
+            #    input_ids, past_key_values, all_transition_scores = self._add_new_tokens_and_adjust(input_ids, new_token_ids, past_key_values, all_transition_scores)
                 
             cur_length = input_ids.shape[-1]
 
