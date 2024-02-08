@@ -619,7 +619,7 @@ class SamplingWithCalculator:
 
         outputs = self._sample_tokens_with_calculator(
             input_ids=input_ids,
-            past_key_values=past_key_values,
+            #past_key_values=past_key_values,
             max_length=max_length,
             stopping_criteria_end=stopping_criteria_step,
             output_transition_scores=output_transition_scores,
