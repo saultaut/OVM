@@ -137,6 +137,9 @@ def main():
     cur_epoch = local_step = global_step = 0
     start_local_step = start_global_step = -1
 
+    os.environ['WANDB_PROJECT'] = 'GSM8K-Generator-Finetune'
+    os.environ['WANDB_NAME'] = "opt-125m-gen"
+
     # init wandb
     if accelerator.is_main_process:
         project_name = os.environ['WANDB_PROJECT']
