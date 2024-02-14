@@ -81,35 +81,33 @@ class OutputArguments:
 
 
 def main():
-    #parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments, GenerationArguments, OutputArguments))
-    #model_args, data_args, training_args, generation_args, output_args = parser.parse_args_into_dataclasses()
+    parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments, GenerationArguments, OutputArguments))
+    args = [
+        "--model_name_or_path", "facebook/opt-125m",  # Replace with actual model name or path
+        "--dataset", "gsm8k",
+        "--data_dir", "data/gsm8k",
+        "--target_set", "train_small",
+        "--save_dir", "./models/gsm8k/generators/opt-125mln-gen",  # Replace with actual save directory
+        "--num_train_epoches", "5",
+        "--eval_steps", "200",
+        "--per_device_train_batch_size", "4",
+        "--per_device_eval_batch_size", "4",
+        "--gradient_accumulation_steps", "1",
+        "--gradient_checkpointing", "True",
+        "--learning_rate", "1e-5",
+        "--weight_decay", "0",
+        "--lr_scheduler_type", "linear",
+        "--warmup_steps", "0",
+        "--save_steps", "200",
+        "--save_best", "False",
+        "--save_total_limit", "0",
+        "--logging_dir", "./wandb",
+        "--logging_steps", "1",
+        "--seed", "42"
+    ]
+    
 
-	parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments, GenerationArguments, OutputArguments))
-	args = [
-		"--model_name_or_path", "facebook/opt-125m",  # Replace with actual model name or path
-		"--dataset", "gsm8k",
-		"--data_dir", "data/gsm8k",
-		"--target_set", "train_small",
-		"--save_dir", "./models/gsm8k/generators/opt-125mln-gen",  # Replace with actual save directory
-		"--num_train_epoches", "5",
-		"--eval_steps", "200",
-		"--per_device_train_batch_size", "4",
-		"--per_device_eval_batch_size", "4",
-		"--gradient_accumulation_steps", "1",
-		"--gradient_checkpointing", "True",
-		"--learning_rate", "1e-5",
-		"--weight_decay", "0",
-		"--lr_scheduler_type", "linear",
-		"--warmup_steps", "0",
-		"--save_steps", "200",
-		"--save_best", "False",
-		"--save_total_limit", "0",
-		"--logging_dir", "./wandb",
-		"--logging_steps", "1",
-		"--seed", "42"
-	]
-	model_args, data_args, training_args, generation_args, output_args = parser.parse_args_into_dataclasses(args)
-	
+    model_args, data_args, training_args, generation_args, output_args = parser.parse_args_into_dataclasses(args)
     config_args_dict = model_args.__dict__.copy().update(dict(**data_args.__dict__, **training_args.__dict__))
     set_random_seed(training_args.seed)
 

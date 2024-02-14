@@ -5,6 +5,7 @@ export WANDB_PROJECT=GSM8K-Generator-Finetune
 export WANDB_ENTITY=
 
 
+# model_name_or_path=facebook/opt-1.3b
 model_name_or_path=facebook/opt-125m
 save_generator_id=facebook/opt-125m-ep2
 
@@ -14,10 +15,7 @@ export WANDB_NAME=${save_generator_id}
 
 
 
-accelerate launch \
-  --config_file ./configs/zero1.yaml \
-  --main_process_port=20650 \
-  train_generator.py \
+accelerate launch train_generator.py \
   --model_name_or_path ${model_name_or_path} \
   --dataset gsm8k \
   --data_dir data/gsm8k \
