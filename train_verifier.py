@@ -134,7 +134,8 @@ def main():
             if global_step < start_global_step:
                 global_step += 1
                 continue
-            
+            #training llm is done on lables which is answers (questions are masked, but this can be replaced and include questions as well)
+            # 'v_labels' is for veryfierier and is 0 or 1. As it is on solution tokens as well, question is masked.
             batch_input = {k: v for k, v in batch.items() if k in ('input_ids', 'attention_mask', 'labels', 'v_labels')}
             # backpropagation
             with accelerator.accumulate(model):

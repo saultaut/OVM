@@ -32,8 +32,8 @@ accelerate launch \
   --loss_on_llm True \
   --num_train_epoches 1 \
   --eval_steps 1000 \
-  --per_device_train_batch_size 64 \
-  --per_device_eval_batch_size 64 \
+  --per_device_train_batch_size 4 \
+  --per_device_eval_batch_size 4 \
   --gradient_accumulation_steps 1 \
   --gradient_checkpointing True \
   --learning_rate 1e-5 \
