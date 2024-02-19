@@ -250,10 +250,10 @@ def main():
                 gc.collect(); torch.cuda.empty_cache()
                 model.train()
 
-            # save states for resuming
-            if global_step != 0 and global_step % training_args.per_save_steps == 0:
-                accelerator.wait_for_everyone()
-                accelerator.save_state(os.path.join(output_args.save_dir, 'resume'))
+            # # save states for resuming
+            # if global_step != 0 and global_step % training_args.per_save_steps == 0:
+            #     accelerator.wait_for_everyone()
+            #     accelerator.save_state(os.path.join(output_args.save_dir, 'resume'))
 
 
             global_step += 1
