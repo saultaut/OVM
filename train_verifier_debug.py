@@ -270,9 +270,9 @@ def main():
     save_verifier(accelerator, model, tokenizer, output_args.save_dir)
     save_training_args_with_accelerator(accelerator, training_args, output_args.save_dir)
 
-    if accelerator.is_main_process:
-        shutil.rmtree(os.path.join(output_args.save_dir, 'resume'))
-        wandb.finish()
+    # if accelerator.is_main_process:
+    #     shutil.rmtree(os.path.join(output_args.save_dir, 'resume'))
+    #     wandb.finish()
 
 
 if __name__ == "__main__":
