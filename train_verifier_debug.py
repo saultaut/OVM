@@ -86,11 +86,11 @@ def main():
     n_solution=5
     generator_id="opt-125mln-gen"
 
-    checkpoint_dir = f"./models/gsm8k/generators/{generator_id}"
+    checkpoint_dir = f"/root/OVM/models/gsm8k/generators/{generator_id}"
     save_verifier_id=f"n{n_solution}-scahead-mse-lm-token"
 
     experimentID = 1
-    save_dir=f"./models/gsm8k/verifiers/{generator_id}-{experimentID}"
+    save_dir=f"/root/OVM/models/gsm8k/verifiers/{generator_id}-{experimentID}"
     final_id=f"{generator_id}-{save_verifier_id}"
 
     os.environ['WANDB_PROJECT'] = 'GSM8K-Verifier'
@@ -98,7 +98,7 @@ def main():
 
     args = [
         "--model_name_or_path", "facebook/opt-125m",
-        "--data_dir", "./data/gsm8k/model_generation",
+        "--data_dir", "/root/OVM/data/gsm8k/model_generation",
         "--target_set", "train_small",
         "--save_dir", save_dir,
         "--generator_id", generator_id,
