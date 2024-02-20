@@ -96,7 +96,18 @@ def get_save_files(model_args: dataclass, data_args: dataclass, inference_args: 
 
 def main():
 
+    
+    """
+    To run this code in Visual Studio debug:
 
+    git clone https://github.com/saultaut/OVM.git
+    cd OVM/
+    pip install -r requirements_runpod.txt
+
+    python train_generator_debug.py
+    python train_verifier_debug.py
+
+    """
     generator_id="opt-125mln-gen"
 
     n_solution=5
@@ -106,23 +117,23 @@ def main():
     n_sampling_steps=20
 
 
-    #model_name_or_path = f"./models/gsm8k/generators/{generator_id}"
+    model_name_or_path = f"/root/OVM/models/gsm8k/generators/{generator_id}"
     experimentID="1"
     verifier_model_name_or_path=f"/root/OVM/models/gsm8k/verifiers/{generator_id}-{experimentID}"
 
     args = [
-        "--model_name_or_path", "sauliuz/opt-125mln-gen",
+        "--model_name_or_path", model_name_or_path,
         "--verifier_model_name_or_path", verifier_model_name_or_path,
         "--dataset", "gsm8k",
-        "--data_dir", "data/gsm8k",
-        "--output_dir", "root/OVM/eval_results/gsm8k/generator_with_verifier",
+        "--data_dir", "/root/OVM/data/gsm8k",
+        "--output_dir", "/root/OVM/eval_results/gsm8k/generator_with_verifier",
         "--target_set", "test_small",
         "--inference_mode", "beam",
         "--batch_size", "4",
         "--vs_batch_size", "4",
         "--n_beam", str(n_beam),
         "--n_sampling_steps", str(n_sampling_steps),
-        "--max_n_step", "10",
+        "--max_n_step", "3",
         "--max_step_length", "100",
         "--dedup_mode", "0",
         "--do_sample", "True",
@@ -134,7 +145,7 @@ def main():
     ]
 
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, GenerationArguments, InferenceArguments))
-    model_args, data_args, generation_args, inference_args = parser.parse_args_into_dataclasses()
+    model_args, data_args, generation_args, inference_args = parser.parse_args_into_dataclasses(args)
     if inference_args.seed is not None:
         set_random_seed(inference_args.seed)
     if inference_args.seed is not None:

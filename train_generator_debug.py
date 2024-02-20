@@ -85,9 +85,9 @@ def main():
     args = [
         "--model_name_or_path", "facebook/opt-125m",  # Replace with actual model name or path
         "--dataset", "gsm8k",
-        "--data_dir", "data/gsm8k",
+        "--data_dir", "/root/OVM/data/gsm8k",
         "--target_set", "train_small",
-        "--save_dir", "./models/gsm8k/generators/opt-125mln-gen",  # Replace with actual save directory
+        "--save_dir", "/root/OVM//models/gsm8k/generators/opt-125mln-gen",  # Replace with actual save directory
         "--num_train_epoches", "5",
         "--eval_steps", "200",
         "--per_device_train_batch_size", "4",
