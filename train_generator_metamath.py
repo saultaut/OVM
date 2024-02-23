@@ -81,6 +81,21 @@ class OutputArguments:
 
 
 def main():
+
+    """
+    To run this code in Visual Studio debug:
+
+    git clone https://github.com/saultaut/OVM.git
+    cd OVM/
+    pip install -r requirements_runpod.txt
+
+    WANDB_MODE=online
+
+    python train_generator_debug.py
+    python train_verifier_debug.py
+
+    """
+
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments, GenerationArguments, OutputArguments))
     args = [
         "--model_name_or_path", "facebook/opt-125m",  # Replace with actual model name or path
@@ -88,7 +103,7 @@ def main():
         "--data_dir", "/root/OVM/data/metamath",
         "--target_set", "train_500",
         "--save_dir", "/root/OVM//models/metamath/generators/opt-125mln-generator",  # Replace with actual save directory
-        "--num_train_epoches", "5",
+        "--num_train_epoches", "2",
         "--eval_steps", "200",
         "--per_device_train_batch_size", "4",
         "--per_device_eval_batch_size", "4",
