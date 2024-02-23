@@ -92,7 +92,13 @@ def main():
     WANDB_MODE=online
 
     python train_generator_debug.py
-    python train_verifier_debug.py
+
+    # save model to hugging face
+    python -m pip install huggingface_hub
+    huggingface-cli login
+    huggingface-cli upload sauliuz/opt-125mln ./models/metamath/generators/ .
+
+    huggingface-cli download sauliuz/opt-125mln-generator --local-dir ./test_download/
 
     """
 
