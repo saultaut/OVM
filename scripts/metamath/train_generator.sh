@@ -4,6 +4,7 @@ export WANDB_API_KEY=
 export WANDB_PROJECT=Opt-125m-Generator-Finetune
 export WANDB_ENTITY=
 
+WANDB_MODE=online
 
 model_name_or_path=facebook/opt-125m
 save_generator_id=opt-125m-generator
@@ -15,8 +16,8 @@ export WANDB_NAME=${save_generator_id}
 
 
 accelerate launch \
-  --config_file ./configs/zero1.yaml \
-  train_generator.py \
+  --config_file ./configs/zero1_metamath.yaml \
+  train_generator_metamath.py \
   --model_name_or_path ${model_name_or_path} \
   --dataset metamath \
   --data_dir data/metamath \
