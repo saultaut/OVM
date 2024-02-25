@@ -4,3 +4,4 @@ transformers
 wandb
 scipy
 flash_attn
+datasets
