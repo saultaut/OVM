@@ -5,6 +5,7 @@ n_solutions=1
 model_name_or_path=meta-math/MetaMath-Mistral-7B
 
 accelerate launch \
+  --config_file ./configs/multi_gpu_inference.yaml \
   generate_metamath.py \
   --model_name_or_path ${model_name_or_path} \
   --dataset metamath \

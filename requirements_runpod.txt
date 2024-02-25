@@ -5,3 +5,4 @@ wandb
 scipy
 flash_attn
 datasets
+sentencepiece
