@@ -1,6 +1,6 @@
 #!/bin/bash
 
-n_solutions=1
+n_solutions=2
 
 model_name_or_path=meta-math/MetaMath-Mistral-7B
 
