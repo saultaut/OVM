@@ -68,26 +68,6 @@ def get_save_files(model_args: dataclass, data_args: dataclass, inference_args: 
     return os.path.join(output_dir, responses_file), os.path.join(metric_output_dir, metrics_file)
 
 
-
-"""
-To run this code in Visual Studio debug:
-
-git clone https://github.com/saultaut/OVM.git
-cd OVM/
-pip install -r requirements_runpod.txt
-
-WANDB_MODE=online
-
-python train_generator_debug.py
-
-# save model to hugging face
-python -m pip install huggingface_hub
-huggingface-cli login
-huggingface-cli upload sauliuz/opt-125mln ./models/metamath/generators/ .
-
-huggingface-cli download sauliuz/opt-125mln-generator --local-dir ./test_download/
-
-"""
 def main():
 
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, GenerationArguments, InferenceArguments))
