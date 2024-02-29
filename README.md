@@ -1,5 +1,19 @@
 # OVM, Outcome-supervised Value Models for Planning in Mathematical Reasoning
 
+## Addapting to MATH dataset
+
+Run the commands:
+```
+git clone https://github.com/saultaut/OVM.git
+cd OVM/
+pip install -r requirements_runpod.txt
+bash scripts/metamath/generate_metamath.sh
+```
+The output will be saved to `data/metamath/model_generation/train_500/` and file should be like responses_n1_*.jsonl
+
+
+
+## Paper
 
 Code, metrics, and models for the paper [Outcome-supervised Verifiers for Planning in Mathematical Reasoning](https://arxiv.org/pdf/2311.09724.pdf)
 
