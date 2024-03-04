@@ -19,6 +19,17 @@ Connected remotly using VS Code to RunPod instace with GPU 3080. Everything work
 python train_verifier_debug_metamath.py
 ```
 
+## Train Verifier on MetaMath dataset:
+Run the commands:
+```
+git clone https://github.com/saultaut/OVM.git
+cd OVM/
+pip install -r requirements_runpod.txt
+bash scripts/metamath/train_verifier_metamath.sh
+```
+
+Output will be save in `/models/metamath/verifiers/`
+
 ## Paper
 
 Code, metrics, and models for the paper [Outcome-supervised Verifiers for Planning in Mathematical Reasoning](https://arxiv.org/pdf/2311.09724.pdf)
