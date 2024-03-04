@@ -11,7 +11,13 @@ bash scripts/metamath/generate_metamath.sh
 ```
 The output will be saved to `data/metamath/model_generation/train_500/` and file should be like responses_n1_*.jsonl
 
+## Debuging the Verifier code
 
+Connected remotly using VS Code to RunPod instace with GPU 3080. Everything worked. This uses small Opt-125m model.
+
+```
+python train_verifier_debug_metamath.py
+```
 
 ## Paper
 
