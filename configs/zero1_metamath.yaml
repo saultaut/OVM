@@ -15,7 +15,7 @@ main_process_port: null
 main_training_function: main
 fsdp_config: {}
 megatron_lm_config: {}
-mixed_precision: fp16
+mixed_precision: bf16
 num_machines: 1
 num_processes: 2
 rdzv_backend: static
