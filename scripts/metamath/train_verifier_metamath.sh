@@ -6,13 +6,13 @@ export WANDB_ENTITY=
 
 
 n_solution=2
-generator_id=opt-125m
+generator_id=MetaMath-Mistral-7B
 save_verifier_id=n${n_solution}-scahead-mse-lm-token
 
 
 checkpoint_dir=facebook/opt-125m
 
-experimentID = 1
+experimentID=1
 final_id=${generator_id}-${save_verifier_id}
 save_dir=~/models/metamath/verifiers/${generator_id}-${experimentID}
 export WANDB_NAME=${generator_id}-${experimentID}
@@ -24,14 +24,14 @@ accelerate launch \
   train_verifier_metamath.py \
   --model_name_or_path ${checkpoint_dir} \
   --data_dir data/metamath/model_generation \
-  --target_set train_500 \
+  --target_set train_50 \
   --save_dir ${save_dir} \
   --generator_id ${generator_id} \
   --dedup True \
   --per_problem_sampling_solution ${n_solution} \
   --loss_level token \
   --loss_on_llm True \
-  --num_train_epoches 2 \
+  --num_train_epoches 3 \
   --eval_steps 1000 \
   --per_device_train_batch_size 4 \
   --per_device_eval_batch_size 4 \
